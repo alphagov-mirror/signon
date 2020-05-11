@@ -23,7 +23,7 @@ class PermissionUpdaterTest < ActiveSupport::TestCase
 
   context "perform" do
     should "update the application with users information" do
-      expected_body = UserOAuthPresenter.new(@user, @application).as_hash.to_json
+      expected_body = UserOAuthPresenter.new(@user, @application).as_hash.as_json
       http_request = stub_request(:put, users_url(@application)).with(body: expected_body)
 
       PermissionUpdater.new.perform(@user.uid, @application.id)
@@ -73,7 +73,7 @@ class PermissionUpdaterTest < ActiveSupport::TestCase
         @signin_permission.destroy
         @other_permission.destroy
 
-        expected_body = UserOAuthPresenter.new(@user, @application).as_hash.to_json
+        expected_body = UserOAuthPresenter.new(@user, @application).as_hash.as_json
         http_request = stub_request(:put, users_url(@application)).with(body: expected_body)
 
         PermissionUpdater.new.perform(@user.uid, @application.id)
