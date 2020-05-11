@@ -22,7 +22,7 @@ class SSOPushClientTest < ActiveSupport::TestCase
     end
 
     should "send a PUT to the related app with the user.json as in the OAuth exchange" do
-      request = stub_request(:put, users_url(@application)).with(body: @user_hash.as_json)
+      request = stub_request(:put, users_url(@application)).with(body: @user_hash.to_json)
       SSOPushClient.new(@application).update_user(@user.uid, @user_hash)
       assert_requested request
     end
