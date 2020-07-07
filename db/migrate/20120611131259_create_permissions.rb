@@ -7,7 +7,5 @@ class CreatePermissions < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :permissions, :user_id
-    add_index :permissions, :application_id
   end
 end

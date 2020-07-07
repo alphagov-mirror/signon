@@ -3,8 +3,8 @@ mysql_default: &mysql_default
   adapter: mysql2
   encoding: utf8
   reconnect: true
-  username: signonotron2
-  password: signonotron2
+  username: root
+  password:
   pool: 5
 
 postgresql_default: &postgresql_default
